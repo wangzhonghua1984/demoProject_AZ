@@ -24,7 +24,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "myrg" {
-  name     = "demorg"
+  RGname   = "demorg"
   location = "East Asia"
   tags = {
     enviroment = "dev"
