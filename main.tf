@@ -16,16 +16,17 @@ terraform {
 }
 
 provider "azurerm" {
-  version         = "~>2.0"
   subscription_id = var.SubscriptionID
   client_id       = var.ClientID
   client_secret   = var.ClientSecret
   tenant_id       = var.TenantID
+  
+  features {}
 }
 
 resource "azurerm_resource_group" "myrg" {
-  RGname   = "demorg"
-  location = "East Asia"
+  RGname   = var.RGName
+  location = var.Location
   tags = {
     enviroment = "dev"
     source     = "terraform"

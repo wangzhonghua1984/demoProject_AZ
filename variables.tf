@@ -1,10 +1,12 @@
 variable "RGName" {
   type = string
+  default = "demorg"
 }
 
 
 variable "Location" {
   type = string
+  default = "East Asia"
 }
 
 
