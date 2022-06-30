@@ -25,7 +25,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "myrg" {
-  RGname   = var.RGName
+  name   = var.RGName
   location = var.Location
   tags = {
     enviroment = "dev"
