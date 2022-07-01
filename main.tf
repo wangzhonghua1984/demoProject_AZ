@@ -30,7 +30,7 @@ resource "azurerm_resource_group" "resouregroup" {
 }
 
 resource "azurerm_storage_account" "storageaccount" {
-  name                     = var.Rgname
+  name                     = var.RGName
   resource_group_name      = azurerm_resource_group.resouregroup.name
   location                 = azurerm_resource_group.resouregroup.location
   account_tier             = "Standard"
