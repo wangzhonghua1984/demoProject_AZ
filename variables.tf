@@ -3,6 +3,10 @@ variable "RGName" {
   default = "demoRg"
 }
 
+variable "Rgname" {
+  type    = string
+  default = "storage20220701"
+}
 
 variable "Location" {
   type = string
