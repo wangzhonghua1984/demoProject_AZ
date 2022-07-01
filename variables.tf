@@ -1,6 +1,6 @@
 variable "RGName" {
   type = string
-  default = "demoRg"
+  default = "demorg"
 }
 
 variable "Rgname" {
