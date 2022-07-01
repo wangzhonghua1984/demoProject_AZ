@@ -1,16 +1,8 @@
 terraform {
-  cloud {
-    organization = "learn-terraform-jeffstan"
-    workspaces {
-      name = "demoProject_AZ"
-    }
-  }
-  required_version = ">=0.12"
-
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~>2.0"
+      version = "3.11.0"
     }
   }
 }
@@ -24,13 +16,25 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "myrg" {
-  name   = var.RGName
-  location = var.Location
-  tags = {
-    enviroment = "dev"
-    source     = "terraform"
+locals {
+  tags ={
+    owner   = "wzh"
+    project = "terraform_learning"
   }
 }
 
+resource "azurerm_resource_group" "resouregroup" {
+  name     = "myterraform_rg"
+  location = var.Location
+  tags =  local.tags
+}
 
+resource "azurerm_storage_account" "storageaccount" {
+  name                     = var.Rgname
+  resource_group_name      = azurerm_resource_group.resouregroup.name
+  location                 = azurerm_resource_group.resouregroup.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = local.tags
+}
